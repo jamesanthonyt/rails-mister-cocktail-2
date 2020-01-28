@@ -1,0 +1,19 @@
+
+<% unless @cocktails.nil? %>
+  <ul>
+  <!-- <div class="row"> -->
+    <% @cocktails.each do |cocktail| %>
+      <li>
+      <!-- <div class="col-3"> -->
+        <!-- <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)"> -->
+        <!-- <div class="card-category"> -->
+          <p><%= link_to cocktail.name, cocktail_path(cocktail) %></p>
+        <!-- </div> -->
+      <!-- </div> -->
+      </li>
+    <% end %>
+  <!-- </div> -->
+  </ul>
+<% end %>
+
+<%= link_to 'Add Cocktail', new_cocktail_path %>
