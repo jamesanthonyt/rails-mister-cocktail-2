@@ -1,16 +1,33 @@
-
-<p><%= @cocktail.name %></p>
-
-<ul>
-  <% @doses.each do |dose| %>
-    <li>
-      <%= dose.description %>
-      <%= dose.ingredient.name %>
-      <%= button_to 'X', dose_path(dose), method: :delete %>
-    </li>
-  <% end %>
-</ul>
-
-<%= link_to 'Add dose', new_cocktail_dose_path(@cocktail) %>
-
-<%= link_to 'Back to all cocktails', root_path %>
+<div class="banner mb-5" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png);">
+  <div class="container">
+    <h1><%= @cocktail.name %></h1>
+    <p><%= link_to 'Back to Cocktails', root_path %></p>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-12 col-lg-6">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Quantity</th>
+            <th scope="col">Ingredient</th>
+            <th scope="col">Remove</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @doses.each do |dose| %>
+            <tr>
+              <td><%= dose.description %></td>
+              <td><%= dose.ingredient.name %></td>
+              <td><%= link_to 'X', dose_path(dose), method: :delete %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-12 col-lg-6">
+      <%= link_to 'Add dose', new_cocktail_dose_path(@cocktail) %>
+    </div>
+  </div>
+</div>
