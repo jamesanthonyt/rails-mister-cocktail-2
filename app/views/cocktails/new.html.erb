@@ -1,6 +1,21 @@
-<p>Create new cocktail</p>
+<div class="banner mb-5" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png);">
+  <div class="container">
+    <h1>Create a new cocktail!</h1>
+    <p>What's it going to be?</p>
+  </div>
+</div>
+<div class="container">
+  <%= simple_form_for @cocktail do |f| %>
+    <%= f.input :name, label: "Cocktail name" %>
+    <%= f.button :submit, class:"btn btn-primary" %>
+  <% end %>
+</div>
 
-<%= simple_form_for @cocktail do |f| %>
-  <%= f.input :name %>
-  <%= f.submit %>
-<% end %>
+<script>
+  const addCocktail = document.querySelector('input[type="submit"]');;
+  addCocktail.addEventListener("click", (event) => {
+    swal("New cocktail added!", "", "success");
+  });
+</script>
+
+
