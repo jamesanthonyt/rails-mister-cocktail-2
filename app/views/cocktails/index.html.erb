@@ -10,7 +10,7 @@
       <% @cocktails.each do |cocktail| %>
         <div class="col-sm-12 col-md-6 col-lg-4">
           <%= link_to cocktail_path(cocktail) do %>
-            <div class="card-category mt-3 mb-3" style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+            <div class="card-category mt-3 mb-3">
               <span><%= cocktail.name %></span>
             </div>
           <% end %>
