@@ -10,7 +10,12 @@
       <% @cocktails.each do |cocktail| %>
         <div class="col-sm-12 col-md-6 col-lg-4">
           <%= link_to cocktail_path(cocktail) do %>
-            <div class="card-category mt-3 mb-3">
+
+            <% if cocktail.photo.attached? %>
+              <div class="card-category mt-3 mb-3" style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('<%= cl_image_path cocktail.photo.key, height: 300, width: 400, crop: :fill %>')">
+            <% else %>
+              <div class="card-category mt-3 mb-3">
+            <% end %>
               <span><%= cocktail.name %></span>
             </div>
           <% end %>
