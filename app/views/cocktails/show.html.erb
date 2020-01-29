@@ -7,24 +7,28 @@
 <div class="container">
   <div class="row">
     <div class="col-12 col-lg-7">
-      <table class="table">
-        <thead>
-          <tr>
-            <th scope="col">Quantity</th>
-            <th scope="col">Ingredient</th>
-            <th scope="col">Remove</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @doses.each do |dose| %>
+      <% unless @doses.count == 0 %>
+        <table class="table">
+          <thead>
             <tr>
-              <td><%= dose.description %></td>
-              <td><%= dose.ingredient.name %></td>
-              <td><%= link_to 'X', dose_path(dose), method: :delete %></td>
+              <th scope="col">Quantity</th>
+              <th scope="col">Ingredient</th>
+              <th scope="col">Remove</th>
             </tr>
-          <% end %>
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            <% @doses.each do |dose| %>
+              <tr>
+                <td><%= dose.description %></td>
+                <td><%= dose.ingredient.name %></td>
+                <td><%= link_to 'X', dose_path(dose), method: :delete %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      <% else %>
+        <p>Add some ingredients!</p>
+      <% end %>
     </div>
     <div class="col-12 col-lg-5">
       <h3>Add Ingredients</h2>
