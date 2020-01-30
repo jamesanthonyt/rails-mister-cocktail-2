@@ -14,7 +14,7 @@
             <% if cocktail.photo.attached? %>
               <div class="card-category mt-3 mb-3" style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('<%= cl_image_path cocktail.photo.key, height: 300, width: 400, crop: :fill %>')">
             <% else %>
-              <div class="card-category mt-3 mb-3">
+              <div class="card-category mt-3 mb-3" style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url(<%= asset_path 'default-cocktail.jpg' %>)">
             <% end %>
               <span><%= cocktail.name %></span>
             </div>
